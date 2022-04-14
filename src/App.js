@@ -24,6 +24,18 @@ export default class App extends Component {
         ]
     }
 
+
+    // Lifecyle hooks
+
+    constructor(props) {
+        super(props);
+        console.log('App - constructor');
+    }
+
+    componentDidMount() {
+        console.log('App - componentDidMount');
+    }
+
     onDelete = (id) => {
         const counters = this.state.counters.filter(counter => counter.id !== id);
         this.setState({
@@ -60,6 +72,7 @@ export default class App extends Component {
     }
 
     render() {
+        console.log('App - render');
         return (
             <React.Fragment>
                 <Navbar/>

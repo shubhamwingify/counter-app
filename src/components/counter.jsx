@@ -5,16 +5,25 @@ export default class Counter extends Component {
         return `badge badge-${value <= 0 ? 'warning' : 'primary'}`
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.value !== this.props.value) {
+            // make ajax call
+        }
+    }
+
+    componentWillUnmount() {
+        console.log('Counter - componentWillUnmount');
+    }
 
     render() {
+        console.log('Counter - render');
         const {value} = this.props;
 
         const styles = {
             fontSize: '16px'
         };
 
-        return (
-            <React.Fragment>
+        return (<React.Fragment>
                 <div className="border-primary border p-2 m-3">
                     {this.props.children}
                     <h4 style={{color: "blue"}}>Counter component</h4>
@@ -35,7 +44,6 @@ export default class Counter extends Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
-        )
+            </React.Fragment>)
     }
 }
